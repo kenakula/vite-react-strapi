@@ -1,5 +1,5 @@
-import { LayoutPrivate } from '@components/layout';
-import { LayoutAuth } from '@components/layout/layout.auth';
+import { PrivateLayout } from '@components/layout';
+import { AuthLayout } from '@components/layout/auth-layout';
 import { HomePage } from '@pages/home-page/home-page';
 import { LoginPage } from '@pages/login-page/login-page';
 import { ProfilePage } from '@pages/profile-page/profile-page';
@@ -8,27 +8,26 @@ import { createBrowserRouter, RouteObject } from 'react-router-dom';
 
 const routes: RouteObject[] = [
   {
-    element: <LayoutPrivate />,
-    path: '/',
+    element: <AuthLayout />,
+    path: '/auth/*',
+    children: [
+      {
+        path: 'login',
+        element: <LoginPage />,
+      },
+      {
+        path: 'signup',
+        element: <SignupPage />,
+      },
+    ]
+  },
+  {
+    element: <PrivateLayout />,
     children: [
       {
         element: <ProfilePage />,
         path: '/profile'
       }
-    ]
-  },
-  {
-    element: <LayoutAuth />,
-    path: '/auth',
-    children: [
-      {
-        path: '/auth/login',
-        element: <LoginPage />,
-      },
-      {
-        path: '/auth/signup',
-        element: <SignupPage />,
-      },
     ]
   },
   {
