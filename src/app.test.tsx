@@ -1,11 +1,18 @@
 import { render, screen } from '@testing-library/react';
-import { describe, it } from 'vitest';
+import { vi } from 'vitest';
 
 import { App } from './app';
 
-describe('test app', () => {
-  it('true to be true', () => {
+vi.mock('@app/store/app-store', () => ({
+  useAppStore: vi.fn().mockImplementation(() => ({
+    colorMode: 'dark'
+  }))
+}));
+
+describe('App', () => {
+  it('renders the App component', () => {
     render(<App />);
-    screen.debug();
+
+    screen.debug(); // prints out the jsx in the App component unto the command line
   });
 });
