@@ -1,0 +1,12 @@
+.header {
+  background: antiquewhite;
+
+  div {
+    border: 1px solid red;
+  }
+}
+
+.headerButton {
+  background: darkred;
+  color: white;
+}

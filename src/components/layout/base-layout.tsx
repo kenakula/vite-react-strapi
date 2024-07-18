@@ -6,7 +6,7 @@ import { Header } from './components';
 export const BaseLayout = (): ReactElement => {
   return (
     <>
-      <Header showMenuToggle={false} />
+      <Header />
       <main>
         <Outlet />
       </main>

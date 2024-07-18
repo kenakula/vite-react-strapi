@@ -16,6 +16,12 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     }
   },
+  css: {
+    transformer: 'lightningcss',
+  },
+  build: {
+    cssMinify: 'lightningcss',
+  },
   test: {
     globals: true,
     environment: 'jsdom',

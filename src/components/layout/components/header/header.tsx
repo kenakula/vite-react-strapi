@@ -1,15 +1,13 @@
 import { Menu } from '@components/menu';
 import { ReactElement } from 'react';
 
-interface IProps {
-  showMenuToggle?: boolean;
-}
+import styles from './header.module.css';
 
-export const Header = ({ showMenuToggle = true }: IProps): ReactElement => {
+export const Header = (): ReactElement => {
   return (
-    <header>
+    <header className={styles.header}>
       <div>
-        {showMenuToggle && <button>menu</button>}
+        <button className={styles.headerButton}>menu</button>
         <p>TR</p>
         <Menu/>
       </div>
