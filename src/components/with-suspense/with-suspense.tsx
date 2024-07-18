@@ -5,7 +5,7 @@ interface IProps {
 }
 
 export const WithSuspense = ({ path }: IProps): ReactElement => {
-  const LazyComponent = lazy(() => import(`../../pages/${path}/${path}`));
+  const LazyComponent = lazy(() => import(`../../pages/${path}/${path}.tsx`));
 
   return (
     <Suspense fallback={<h1>LOADING</h1>}>
