@@ -1,40 +1,18 @@
-import { PrivateLayout } from '@components/layout';
-import { AuthLayout } from '@components/layout/auth-layout';
-import { HomePage } from '@pages/home-page/home-page';
-import { LoginPage } from '@pages/login-page/login-page';
-import { ProfilePage } from '@pages/profile-page/profile-page';
-import { SignupPage } from '@pages/signup-page/signup-page';
-import { createBrowserRouter, RouteObject } from 'react-router-dom';
+import { AuthLayout,BaseLayout, PrivateLayout } from '@components/layout';
+import { WithSuspense } from '@components/with-suspense';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
-const routes: RouteObject[] = [
-  {
-    element: <AuthLayout />,
-    path: '/auth/*',
-    children: [
-      {
-        path: 'login',
-        element: <LoginPage />,
-      },
-      {
-        path: 'signup',
-        element: <SignupPage />,
-      },
-    ]
-  },
-  {
-    element: <PrivateLayout />,
-    children: [
-      {
-        element: <ProfilePage />,
-        path: '/profile'
-      }
-    ]
-  },
-  {
-    element: <HomePage />,
-    path: '/',
-    index: true,
-  },
-];
+const elementRoutes = createRoutesFromElements(
+  <Route element={<BaseLayout />}>
+    <Route path="/"  index element={<WithSuspense path="home-page" />} />
+    <Route element={<PrivateLayout />}>
+      <Route path="/profile" element={<WithSuspense path="profile-page" />} />
+    </Route>
+    <Route path="/auth" element={<AuthLayout />}>
+      <Route path="/auth/login" element={<WithSuspense path="login-page" />} />
+      <Route path="/auth/signup" element={<WithSuspense path="signup-page" />} />
+    </Route>
+  </Route>
+);
 
-export const router = createBrowserRouter(routes);
+export const router = createBrowserRouter(elementRoutes);

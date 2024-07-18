@@ -1,14 +1,16 @@
-import { PropsWithChildren, ReactElement } from 'react';
+import { Container } from '@mui/material';
+import { ReactElement } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { Header } from './components';
 
-export const BaseLayout = ({ children }: PropsWithChildren): ReactElement => {
+export const BaseLayout = (): ReactElement => {
   return (
     <>
-      <Header />
-      <main>
-        {children}
-      </main>
+      <Header showMenuToggle={false} />
+      <Container component="main">
+        <Outlet />
+      </Container>
     </>
   );
 };

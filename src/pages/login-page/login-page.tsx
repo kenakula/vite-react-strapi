@@ -1,5 +1,7 @@
 import { ReactElement } from 'react';
 
-export const LoginPage = (): ReactElement => {
+const LoginPage = (): ReactElement => {
   return <p>LoginPage</p>;
 };
+
+export default LoginPage;
