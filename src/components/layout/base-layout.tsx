@@ -1,4 +1,3 @@
-import { Container } from '@mui/material';
 import { ReactElement } from 'react';
 import { Outlet } from 'react-router-dom';
 
@@ -8,9 +7,9 @@ export const BaseLayout = (): ReactElement => {
   return (
     <>
       <Header showMenuToggle={false} />
-      <Container component="main">
+      <main>
         <Outlet />
-      </Container>
+      </main>
     </>
   );
 };

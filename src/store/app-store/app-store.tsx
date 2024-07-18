@@ -1,4 +1,4 @@
-import { PaletteMode } from '@mui/material';
+import { TColorMode } from '@shared/types';
 import { makeAutoObservable } from 'mobx';
 import { createContext, PropsWithChildren, ReactElement } from 'react';
 
@@ -9,9 +9,9 @@ export class AppStore {
     makeAutoObservable(this);
   }
 
-  private _colorMode: PaletteMode = 'light';
+  private _colorMode: TColorMode = 'light';
 
-  get colorMode(): PaletteMode {
+  get colorMode(): TColorMode {
     return this._colorMode;
   }
 
