@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { renderWithProviders } from '@tests/render-with-providers';
 
 import { App } from './app';
 
@@ -10,8 +11,8 @@ vi.mock('@app/store/app-store', () => ({
 
 describe('App', () => {
   it('renders the App component', () => {
-    render(<App />);
+    renderWithProviders(<App />);
 
-    screen.debug(); // prints out the jsx in the App component unto the command line
+    screen.debug();
   });
 });
