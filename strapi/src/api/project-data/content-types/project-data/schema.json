@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "project_datas",
+  "info": {
+    "singularName": "project-data",
+    "pluralName": "project-datas",
+    "displayName": "projectData"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "appTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
