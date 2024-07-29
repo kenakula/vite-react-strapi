@@ -1,4 +1,4 @@
-import { useAppStore } from '@app/store/app-store';
+import { useAppStore } from '../../store/app-store';
 import { ReactElement } from 'react';
 
 const HomePage = (): ReactElement => {
