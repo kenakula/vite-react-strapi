@@ -4,11 +4,10 @@ import { ReactElement, useEffect } from 'react';
 
 const HomePage = (): ReactElement => {
   const { appVersion } = useAppStore();
-  const { toggleColorMode, colorMode } = useAppStore();
+  const { toggleColorMode, colorMode, getProjectData, projectData } = useAppStore();
 
   const fetchData = async (): Promise<void> => {
-    const data = await fetch('/api/project-data').then(res => res.json());
-    console.log('=>(home-page.tsx:11) data', data);
+    await getProjectData();
   };
 
   useEffect(() => {
@@ -17,6 +16,7 @@ const HomePage = (): ReactElement => {
 
   return (
     <div>
+      {projectData && <h1>{projectData.appTitle}</h1>}
       <p>HomePage: {appVersion}</p>
       <p>Color mode is: {colorMode}</p>
       <button onClick={toggleColorMode}>toggle</button>

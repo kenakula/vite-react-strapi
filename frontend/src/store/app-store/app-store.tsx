@@ -1,8 +1,15 @@
 import { TColorMode } from '@shared/types';
-import { makeAutoObservable } from 'mobx';
+import { axiosInstance } from '@shared/utils';
+import { AxiosResponse } from 'axios';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { createContext, PropsWithChildren, ReactElement } from 'react';
 
+interface IProjectData {
+  appTitle: string;
+}
+
 export class AppStore {
+  public projectData: IProjectData | null = null;
   private readonly _appVersion = import.meta.env.VITE_APP_VERSION;
 
   constructor() {
@@ -21,6 +28,14 @@ export class AppStore {
 
   public toggleColorMode = (): void => {
     this._colorMode = this._colorMode === 'light' ? 'dark' : 'light';
+  };
+
+  public getProjectData = async (): Promise<void> => {
+    const { data: { data } } = await axiosInstance.inst.get<AxiosResponse<IProjectData>>('/project-data');
+
+    runInAction(() => {
+      this.projectData = data;
+    });
   };
 }
 
