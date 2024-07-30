@@ -1,4 +1,5 @@
 import { useAppStore } from '@app/store/app-store';
+import { observer } from 'mobx-react-lite';
 import { ReactElement, useEffect } from 'react';
 
 const HomePage = (): ReactElement => {
@@ -23,4 +24,4 @@ const HomePage = (): ReactElement => {
   );
 };
 
-export default HomePage;
+export default observer(HomePage);
