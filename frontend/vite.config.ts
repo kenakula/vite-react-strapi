@@ -10,11 +10,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@app': path.resolve(__dirname, './src'),
+      '@api': path.resolve(__dirname, './src/api'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@components': path.resolve(__dirname, './src/components'),
       '@shared': path.resolve(__dirname, './src/shared'),
       '@assets': path.resolve(__dirname, './src/assets'),
       '@tests': path.resolve(__dirname, './src/tests'),
+    }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:1337',
+      }
     }
   },
   css: {

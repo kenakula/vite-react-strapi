@@ -6,9 +6,8 @@ const HomePage = (): ReactElement => {
   const { toggleColorMode, colorMode } = useAppStore();
 
   const fetchData = async (): Promise<void> => {
-    fetch('http://localhost:1337/api/project-data').then(res => res.json()).then(data => {
-      console.log(data);
-    });
+    const data = await fetch('/api/project-data').then(res => res.json());
+    console.log('=>(home-page.tsx:11) data', data);
   };
 
   useEffect(() => {

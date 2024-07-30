@@ -11,6 +11,7 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": ["src/*"],
+      "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@shared/*": ["src/shared/*"],
