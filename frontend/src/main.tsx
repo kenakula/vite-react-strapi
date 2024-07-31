@@ -1,3 +1,5 @@
+import './styles/global.module.css';
+
 import { AppStoreProvider } from '@app/store/app-store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';

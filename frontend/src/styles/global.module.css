@@ -1,0 +1,14 @@
+@import './normalize.module.css';
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+
+  & > div {
+    width: 100%;
+  }
+}
