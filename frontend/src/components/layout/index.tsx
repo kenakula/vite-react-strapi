@@ -1,3 +1,3 @@
-export { AuthLayout } from './auth-layout';
-export { BaseLayout } from './base-layout';
-export { PrivateLayout } from './private-layout';
+export { AuthLayout } from './components/auth-layout/auth-layout';
+export { BaseLayout } from './components/base-layout/base-layout';
+export { PrivateLayout } from './components/private-layout/private-layout';
