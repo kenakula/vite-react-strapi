@@ -22,7 +22,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'http://localhost:1337',
-      }
+      },
     }
   },
   css: {
