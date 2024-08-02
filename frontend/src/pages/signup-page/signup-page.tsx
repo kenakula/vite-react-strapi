@@ -1,7 +1,5 @@
-import { signupAtom } from '@app/store/auth';
 import { ISignupDataModel } from '@shared/models';
 import { Field, Form, Formik } from 'formik';
-import { useAtom } from 'jotai';
 import { ReactElement } from 'react';
 
 const DEFAULT_FORM_VALUES: ISignupDataModel = {
@@ -11,16 +9,16 @@ const DEFAULT_FORM_VALUES: ISignupDataModel = {
 };
 
 const SignupPage = (): ReactElement => {
-  const [signupData, signup] = useAtom(signupAtom);
 
   const onSubmit = async (data: ISignupDataModel): Promise<void> => {
-    await signup(data);
+    console.log('=>(signup-page.tsx:16) data', data);
+
   };
 
   return (
     <div>
       <h1>Signup Page</h1>
-      {signupData && <p>{JSON.stringify(signupData)}</p>}
+      {/*{signupData && <p>{JSON.stringify(signupData)}</p>}*/}
       <Formik<ISignupDataModel> initialValues={DEFAULT_FORM_VALUES} onSubmit={onSubmit}>
         <Form>
           <Field name="email" placeholder="email" />

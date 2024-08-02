@@ -1,4 +1,6 @@
-import { IAuthResponseModel,ILoginDataModel, ISignupDataModel } from '@shared/models';
+import { IAuthResponseModel, ILoginDataModel, ISignupDataModel, IStrapiErrorModel } from '@shared/models';
+import { api, getAxiosError } from '@shared/utils';
+import { AxiosResponse } from 'axios';
 import { atom } from 'jotai';
 
 const signupResponseAtom = atom<IAuthResponseModel | null>(null);
@@ -21,14 +23,15 @@ const loginResponseAtom = atom<IAuthResponseModel | null>(null);
 export const loginAtom = atom(
   (get) => get(loginResponseAtom),
   async (_get, set, data: ILoginDataModel) => {
-    const response = await fetch('http://localhost:1337/api/auth/local', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    }).then(res => res.json());
+    try {
+      const result = await api
+        .post<ILoginDataModel, AxiosResponse<IAuthResponseModel>>('/auth/local', data);
 
-    set(loginResponseAtom, response);
+      set(loginResponseAtom, result.data);
+    } catch (error) {
+      const errorData = getAxiosError<IStrapiErrorModel>(error);
+
+      console.error('Error loginAtom: ', errorData?.error);
+    }
   }
 );
