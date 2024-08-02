@@ -14,7 +14,7 @@ const SignupPage = (): ReactElement => {
   const [signupData, signup] = useAtom(signupAtom);
 
   const onSubmit = async (data: ISignupDataModel): Promise<void> => {
-    await signup(data as any);
+    await signup(data);
   };
 
   return (
