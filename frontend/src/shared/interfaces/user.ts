@@ -5,6 +5,6 @@ export interface IUser {
   provider: string;
   confirmed: boolean;
   blocked: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }

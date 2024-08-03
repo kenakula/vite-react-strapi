@@ -5,8 +5,8 @@ import styles from './container.module.css';
 
 type TContainerProps = PropsWithChildren & HTMLProps<HTMLDivElement>;
 
-export const Container = ({ children, ...props }: TContainerProps): ReactElement => (
-  <div className={clsx(styles.container, props.className)} {...props}>
+export const Container = ({ children, className, ...props }: TContainerProps): ReactElement => (
+  <div data-testid="container" className={clsx(styles.container, className)} {...props}>
     {children}
   </div>
 );

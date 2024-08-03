@@ -1,33 +1,26 @@
-import { useAppDispatch, useAppSelector } from '@app/store';
-import { useGetAppDataQuery } from '@app/store/app/app-api';
-import { setAppName, setColorMode } from '@app/store/app/app-slice';
-import { ReactElement, useEffect } from 'react';
+import { appStoreSelector, authStoreSelector, useAppDispatch, useAppSelector } from '@app/store';
+import { toggleColorMode } from '@app/store/app';
+import { Container } from '@components/layout';
+import { ReactElement } from 'react';
 
 import { ColorMode } from './color-mode';
 
 const HomePage = (): ReactElement => {
-  const { appName, colorMode } = useAppSelector(state => state.app);
-  const { data, isLoading } = useGetAppDataQuery();
+  const { appName } = useAppSelector(appStoreSelector);
+  const { user } = useAppSelector(authStoreSelector);
   const dispatch = useAppDispatch();
 
   const handleChangeColorMode = (): void => {
-    dispatch(setColorMode(colorMode === 'dark' ? 'light' : 'dark'));
+    dispatch(toggleColorMode());
   };
 
-  useEffect(() => {
-    if (data) {
-      dispatch(setAppName(data.appTitle));
-    }
-  }, [data]);
-
-  if (isLoading) return <h1>Loading ...</h1>;
-
   return (
-    <div>
+    <Container className="home-page">
       <h1>{appName}</h1>
+      <h3>{user?.email}</h3>
       <ColorMode />
       <button onClick={handleChangeColorMode}>change</button>
-    </div>
+    </Container>
   );
 };
 

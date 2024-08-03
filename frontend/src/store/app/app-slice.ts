@@ -1,5 +1,7 @@
+import { appApi } from '@app/store/app/app-api';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import { IAppData } from '@shared/interfaces';
 import { TColorMode } from '@shared/types';
 
 export interface IAppSlice {
@@ -16,16 +18,21 @@ export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setAppName: (state, { payload }: PayloadAction<string>) => {
-      state.appName = payload;
-    },
-    setColorMode: (state, { payload }: PayloadAction<TColorMode>) => {
-      state.colorMode = payload;
+    toggleColorMode: (state) => {
+      state.colorMode = state.colorMode === 'light' ? 'dark' : 'light';
     }
   },
+  extraReducers: builder => {
+    builder.addMatcher(
+      appApi.endpoints.getAppData.matchFulfilled,
+      (state, { payload }: PayloadAction<IAppData>) => {
+        state.appName = payload.appTitle;
+      }
+    );
+  }
 });
 
 // Action creators are generated for each case reducer function
-export const { setAppName, setColorMode } = appSlice.actions;
+export const { toggleColorMode } = appSlice.actions;
 
-export default appSlice.reducer;
+export const appReducer = appSlice.reducer;
