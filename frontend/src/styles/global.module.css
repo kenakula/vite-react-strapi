@@ -1,4 +1,5 @@
 @import './normalize.module.css';
+@import './variables.module.css';
 
 html,
 body {

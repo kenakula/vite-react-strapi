@@ -1,0 +1,18 @@
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  min-height: var(--line-height);
+  border-radius: var(--radius-sm);
+
+  & + .skeleton {
+    margin-top: var(--spacing-sm);
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}

@@ -1,10 +1,9 @@
 /// <reference types="vitest" />
 import * as path from 'node:path';
 
+import { TRequiredFields } from '@shared/types';
 import react from '@vitejs/plugin-react-swc';
 import { ConfigEnv, defineConfig, loadEnv, ServerOptions, UserConfig } from 'vite';
-
-import { TRequiredFields } from './src/shared/types';
 
 type TServerOptions = TRequiredFields<ServerOptions, 'proxy'>;
 

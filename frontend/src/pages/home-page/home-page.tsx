@@ -1,6 +1,7 @@
 import { appStoreSelector, authStoreSelector, useAppDispatch, useAppSelector } from '@app/store';
 import { toggleColorMode } from '@app/store/app';
 import { Container } from '@components/layouts';
+import { Skeleton } from '@components/skeleton/skeleton';
 import { ReactElement } from 'react';
 
 import { ColorMode } from './color-mode';
@@ -20,6 +21,9 @@ const HomePage = (): ReactElement => {
       <h3>{user?.email}</h3>
       <ColorMode />
       <button onClick={handleChangeColorMode}>change</button>
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
     </Container>
   );
 };

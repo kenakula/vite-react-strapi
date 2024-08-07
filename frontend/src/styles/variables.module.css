@@ -1,0 +1,12 @@
+:root {
+  /* border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* typography */
+  --text-size: 16px;
+  --line-height: 26px;
+
+  /* spacing */
+  --spacing-sm: 4px;
+}
