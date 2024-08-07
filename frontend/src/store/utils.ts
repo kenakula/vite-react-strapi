@@ -1,8 +1,10 @@
 import { BaseQueryFn, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Storage } from '@shared/utils';
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
 export const baseQuery: BaseQueryFn = fetchBaseQuery({
-  baseUrl: '/api',
+  baseUrl,
   prepareHeaders: (headers) => {
     const token = Storage.read<string>('JWT_TOKEN');
 
