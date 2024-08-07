@@ -36,5 +36,8 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/tests/setup.ts',
     css: true,
+    coverage: {
+      provider: 'istanbul'
+    }
   }
 });

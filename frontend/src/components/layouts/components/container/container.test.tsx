@@ -1,6 +1,6 @@
+import { Container } from '@components/layouts';
 import { screen } from '@testing-library/dom';
 import { renderWithProviders } from '@tests/render-with-providers';
-import { Container } from 'src/components/layouts';
 import { beforeEach, expect } from 'vitest';
 
 const { getByText, debug, getByTestId } = screen;
