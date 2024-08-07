@@ -1,6 +1,6 @@
-import { BaseLayout } from '@components/layout';
 import { screen } from '@testing-library/dom';
 import { renderWithProviders } from '@tests/render-with-providers';
+import { BaseLayout } from 'src/components/layouts';
 import { beforeEach, expect } from 'vitest';
 
 const { getByTestId } = screen;

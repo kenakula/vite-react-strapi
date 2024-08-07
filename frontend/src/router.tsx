@@ -1,4 +1,4 @@
-import { AuthLayout, BaseLayout, PrivateLayout } from '@components/layout';
+import { AuthLayout, BaseLayout, PrivateLayout } from '@components/layouts';
 import { WithSuspense } from '@components/with-suspense';
 import { lazy } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';

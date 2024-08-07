@@ -1,4 +1,4 @@
-import { Container } from '@components/layout';
+import { Container } from '@components/layouts';
 import { ReactElement } from 'react';
 import { Outlet } from 'react-router-dom';
 
