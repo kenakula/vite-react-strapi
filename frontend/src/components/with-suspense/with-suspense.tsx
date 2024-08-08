@@ -1,9 +1,13 @@
 import { Spinner } from '@components/spinner';
 import { PropsWithChildren, ReactElement, Suspense } from 'react';
 
-export const WithSuspense = ({ children }: PropsWithChildren): ReactElement => {
+interface IProps extends PropsWithChildren {
+  fallback?: ReactElement;
+}
+
+export const WithSuspense = ({ children, fallback }: IProps): ReactElement => {
   return (
-    <Suspense fallback={<Spinner />}>
+    <Suspense fallback={fallback ?? <Spinner />}>
       {children}
     </Suspense>
   );

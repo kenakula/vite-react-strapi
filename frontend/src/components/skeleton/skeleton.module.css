@@ -8,6 +8,16 @@
   }
 }
 
+.skeletonBlock {
+  min-height: calc(var(--line-height) * 3);
+}
+
+.skeletonAvatar {
+  border-radius: 50%;
+  height: calc(var(--line-height) * 2);
+  width: calc(var(--line-height) * 2);
+}
+
 @keyframes skeleton-loading {
   0% {
     background-color: hsl(200, 20%, 80%);

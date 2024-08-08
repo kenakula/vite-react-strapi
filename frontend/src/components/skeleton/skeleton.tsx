@@ -8,8 +8,12 @@ interface IProps extends HTMLProps<HTMLDivElement> {
 }
 
 export const Skeleton = ({ type = 'text', className, ...rest }: IProps): ReactElement => {
+  const skeletonClassName = clsx(styles.skeleton, className, {
+    [styles.skeletonBlock]: type === 'block',
+    [styles.skeletonAvatar]: type === 'avatar',
+  });
 
   return (
-    <div className={clsx(styles.skeleton, className)} data-testid={`skeleton_${type}`} {...rest} />
+    <div className={skeletonClassName} data-testid={`skeleton_${type}`} {...rest} />
   );
 };
