@@ -3,7 +3,7 @@ import { Spinner } from '@components/spinner';
 import { ReactElement } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-import { Container } from '../components/container/container';
+import { Container } from '../components';
 
 export const PrivateLayout = (): ReactElement => {
   const { data, isLoading } = useGetMeQuery();
