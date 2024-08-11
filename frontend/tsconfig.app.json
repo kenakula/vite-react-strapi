@@ -16,6 +16,7 @@
       "@pages/*": ["src/pages/*"],
       "@shared/*": ["src/shared/*"],
       "@assets/*": ["src/assets/*"],
+      "@media/*": ["src/media/*"],
       "@tests/*": ["src/tests/*"]
     },
     "strictNullChecks": true,

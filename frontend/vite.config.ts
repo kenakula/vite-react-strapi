@@ -4,6 +4,7 @@ import * as path from 'node:path';
 import { TRequiredFields } from '@shared/types';
 import react from '@vitejs/plugin-react-swc';
 import { ConfigEnv, defineConfig, loadEnv, ServerOptions, UserConfig } from 'vite';
+import svgr from 'vite-plugin-svgr';
 
 type TServerOptions = TRequiredFields<ServerOptions, 'proxy'>;
 
@@ -23,7 +24,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   };
 
   return {
-    plugins: [react()],
+    plugins: [react(), svgr()],
     resolve: {
       alias: {
         '@app': path.resolve(__dirname, './src'),
@@ -32,6 +33,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         '@components': path.resolve(__dirname, './src/components'),
         '@shared': path.resolve(__dirname, './src/shared'),
         '@assets': path.resolve(__dirname, './src/assets'),
+        '@media': path.resolve(__dirname, './src/media'),
         '@tests': path.resolve(__dirname, './src/tests'),
       }
     },

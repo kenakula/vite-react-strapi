@@ -1,10 +1,12 @@
 @import './normalize.module.css';
 @import './variables.module.css';
+@import './fonts.module.css';
 
 html,
 body {
   min-height: 100vh;
   box-sizing: border-box;
+  font-family: 'Inter', 'Helvetica', sans-serif;
 }
 
 *,
