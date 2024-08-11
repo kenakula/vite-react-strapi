@@ -1,6 +1,6 @@
 import { appStoreSelector, authStoreSelector, useAppDispatch, useAppSelector } from '@app/store';
 import { toggleColorMode } from '@app/store/app';
-import { Container } from '@components/layouts';
+import { Container } from '@components/container';
 import { ReactElement } from 'react';
 
 import { ColorMode } from './color-mode';

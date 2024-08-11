@@ -1,8 +1,7 @@
 import { useGetAppDataQuery } from '@app/store/app';
+import { Header } from '@components/header';
 import { ReactElement } from 'react';
 import { Outlet } from 'react-router-dom';
-
-import { Header } from '../components/header/header';
 
 export const BaseLayout = (): ReactElement => {
   useGetAppDataQuery();

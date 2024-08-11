@@ -10,3 +10,44 @@
   /* spacing */
   --spacing-sm: 4px;
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: oklch(16.59% 0.022 271.06);
+    --background: oklch(96.46% 0.010 273.36);
+    --primary: oklch(52.08% 0.162 265.74);
+    --secondary: oklch(72.37% 0.093 267.53);
+    --accent: oklch(64.04% 0.145 266.78);
+
+    /* border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+
+    /* typography */
+    --text-size: 16px;
+    --line-height: 26px;
+
+    /* spacing */
+    --spacing-sm: 4px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: oklch(93.77% 0.014 272.69);
+    --background: oklch(13.04% 0.019 269.80);
+    --primary: oklch(51.55% 0.163 266.05);
+    --secondary: oklch(34.75% 0.110 265.02);
+    --accent: oklch(40.24% 0.158 264.83);
+
+    /* border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+
+    /* typography */
+    --text-size: 16px;
+    --line-height: 26px;
+
+    /* spacing */
+    --spacing-sm: 4px;
+  }
+}
