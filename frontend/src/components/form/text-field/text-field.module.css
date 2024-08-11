@@ -5,26 +5,52 @@
   row-gap: var(--spacing-sm);
 }
 
+.fieldWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scale(0);
+    transform-origin: 100% 0;
+    transition: transform var(--default-transition-settings);
+  }
+
+  &:focus-within {
+    &::before {
+      transform: scale(1);
+    }
+  }
+}
+
 .field {
   padding: var(--spacing-sm) var(--spacing-lg);
   width: 100%;
-  border: none;
-  border-bottom: 1px solid transparent;
+  outline: none;
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
-  background-color: white;
-  outline: 1px solid transparent;
-  transition: border var(--default-transition-settings);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: border-color var(--default-transition-settings);
 
   &:hover {
-    cursor: pointer;
+    border-color: var(--color-secondary);
   }
 
   &:focus {
-    border-bottom: 2px solid var(--accent);
+    border-color: var(--color-primary);
   }
 
   &::placeholder {
-    color: var(--text);
+    color: var(--color-text);
     opacity: 0.3;
     font-size: var(--font-label);
   }

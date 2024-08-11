@@ -17,7 +17,9 @@ export const TextField = ({ name, hiddenLabel, label, className, ...rest }: IPro
   return (
     <div className={clsx(styles.fieldContainer)}>
       {label && <Label id={id} text={label} isHidden={hiddenLabel} />}
-      <Field {...rest} id={id} type="text" name={name} className={clsx(styles.field, className)}  />
+      <div className={styles.fieldWrapper}>
+        <Field {...rest} id={id} type="text" name={name} className={clsx(styles.field, className)}  />
+      </div>
     </div>
   );
 };

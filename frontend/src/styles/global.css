@@ -4,10 +4,10 @@
 html,
 body {
   box-sizing: border-box;
-  background-color: var(--background);
+  background-color: var(--color-background);
   font-family: 'Inter', 'Helvetica', sans-serif;
   font-size: 16px;
-  color: var(--text);
+  color: var(--color-text);
 }
 
 *,
@@ -58,4 +58,8 @@ main {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+svg {
+  fill: currentColor;
 }

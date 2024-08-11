@@ -1,6 +1,5 @@
 .header {
-  border-bottom: 1px solid;
-  background-color: var(--background);
+  background-color: var(--color-secondary);
 }
 
 .headerContainer {

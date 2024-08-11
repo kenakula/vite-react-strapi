@@ -4,16 +4,30 @@
   align-items: center;
   column-gap: 5px;
   text-decoration: none;
-  color: var(--text);
+  color: var(--color-text);
   font-weight: 550;
+  transition: color var(--default-transition-settings);
+  outline: none;
 
   span {
     transition: transform var(--default-transition-settings);
   }
 
-  &:hover {
+  svg {
+    fill: transparent;
+    stroke: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--color-primary);
+
     span {
       transform: translateX(5px);
     }
+  }
+
+  &:active {
+    color: var(--color-secondary);
   }
 }
