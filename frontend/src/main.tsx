@@ -1,3 +1,4 @@
+import './styles/variables.module.css';
 import './styles/global.module.css';
 
 import { store } from '@app/store';
