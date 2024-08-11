@@ -1,8 +1,8 @@
 import { Container } from '@components/container';
 import { Logo } from '@components/logo';
-import { Menu } from '@components/menu';
 import { ReactElement } from 'react';
 
+import { GlobalSearch, UserMenu } from './components';
 import styles from './header.module.css';
 
 export const Header = (): ReactElement => {
@@ -10,7 +10,10 @@ export const Header = (): ReactElement => {
     <header className={styles.header} data-testid="header">
       <Container className={styles.headerContainer}>
         <Logo />
-        <Menu/>
+        <div className={styles.headerSearchContainer}>
+          <GlobalSearch />
+        </div>
+        <UserMenu />
       </Container>
     </header>
   );

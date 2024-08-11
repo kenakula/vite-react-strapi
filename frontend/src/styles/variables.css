@@ -9,6 +9,26 @@
 
   /* spacing */
   --spacing-sm: 4px;
+  --spacing-md: 8px;
+  --spacing-lg: 16px;
+  --spacing-xl: 32px;
+
+  /* elements  */
+  --header-height: 54px;
+
+  /* fonts */
+  --font-caption: 0.6rem;
+  --font-label: 0.8rem;
+  --font-body: 1rem;
+  --font-h6: 1.2rem;
+  --font-h5: 1.5rem;
+  --font-h4: 1.9rem;
+  --font-h3: 2.2rem;
+  --font-h2: 2.7rem;
+  --font-h1: 3.2rem;
+
+  /* animation */
+  --default-transition-settings: 0.2s ease-in-out;
 }
 
 @media (prefers-color-scheme: light) {
@@ -19,16 +39,8 @@
     --secondary: oklch(72.37% 0.093 267.53);
     --accent: oklch(64.04% 0.145 266.78);
 
-    /* border radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-
-    /* typography */
-    --text-size: 16px;
-    --line-height: 26px;
-
-    /* spacing */
-    --spacing-sm: 4px;
+    --scrollbar-foreground: oklch(36% 0 0);
+    --scrollbar-background: var(--background);
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -39,15 +51,7 @@
     --secondary: oklch(34.75% 0.110 265.02);
     --accent: oklch(40.24% 0.158 264.83);
 
-    /* border radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-
-    /* typography */
-    --text-size: 16px;
-    --line-height: 26px;
-
-    /* spacing */
-    --spacing-sm: 4px;
+    --scrollbar-foreground: oklch(0.84 0 0);
+    --scrollbar-background: var(--background);
   }
 }

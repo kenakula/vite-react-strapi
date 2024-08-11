@@ -7,7 +7,7 @@ export const Logo = (): ReactElement => {
   return (
     <a href="/" className={styles.logo}>
       <BoxIcon />
-      Logo
+      <span>Logo</span>
     </a>
   );
 };

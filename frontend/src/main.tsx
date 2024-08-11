@@ -1,5 +1,5 @@
-import './styles/variables.module.css';
-import './styles/global.module.css';
+import './styles/variables.css';
+import './styles/global.css';
 
 import { store } from '@app/store';
 import React from 'react';
