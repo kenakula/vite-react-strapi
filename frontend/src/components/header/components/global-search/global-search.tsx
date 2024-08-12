@@ -2,7 +2,7 @@ import { TextField } from '@components/form';
 import { Form, Formik } from 'formik';
 import { ReactElement } from 'react';
 
-import styles from './global-search.module.css';
+import { SearchContainer } from './styles';
 
 interface IGlobalSearchModel {
   search: string;
@@ -18,12 +18,12 @@ export const GlobalSearch = (): ReactElement => {
   };
 
   return (
-    <div className={styles.globalSearch}>
+    <SearchContainer>
       <Formik<IGlobalSearchModel> initialValues={INITIAL_VALUE} onSubmit={handleSubmit}>
         <Form>
           <TextField name="search" label="Поиск по сайту" placeholder="Поиск" hiddenLabel />
         </Form>
       </Formik>
-    </div>
+    </SearchContainer>
   );
 };

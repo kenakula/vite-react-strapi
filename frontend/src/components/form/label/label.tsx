@@ -1,7 +1,6 @@
-import clsx from 'clsx';
 import { ReactElement } from 'react';
 
-import styles from './label.module.css';
+import { StyledLabel } from './styles';
 
 interface IProps {
   id: string;
@@ -9,5 +8,5 @@ interface IProps {
   text: string;
 }
 
-export const Label = ({ id, text, isHidden }: IProps): ReactElement =>
-  <label htmlFor={id} className={clsx(styles.label, { 'visually-hidden': isHidden })}>{text}</label>;
+export const Label = ({ id, text, isHidden = false }: IProps): ReactElement =>
+  <StyledLabel $isHidden={isHidden} htmlFor={id}>{text}</StyledLabel>;

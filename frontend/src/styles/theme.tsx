@@ -1,0 +1,54 @@
+import { PropsWithChildren, ReactElement, useMemo } from 'react';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
+
+const DEFAULT_SPACING_STEP = 8;
+const DEFAULT_RADIUS_STEP = 4;
+
+export const Theme = ({ children }: PropsWithChildren): ReactElement => {
+
+  const theme: DefaultTheme = useMemo(() => ({
+    colors: {
+      white: '#ffffff',
+      black: '#000000',
+      primary: 'oklch(50.08% 0.162 265.74)',
+      secondary: 'oklch(80% 0.4 267.53 / 0.2)',
+      accent: 'oklch(64.04% 0.145 266.78)',
+      text: 'oklch(16.59% 0.022 271.06)',
+      background: 'oklch(96.46% 0.010 273.36)'
+    },
+    font: {
+      size: {
+        caption: '0.6rem',
+        label: '0.8rem',
+        body: '1rem',
+      },
+      family: {
+        base: '\'Inter\', \'Helvetica\', sans-serif',
+      }
+    },
+    borderRadius: {
+      sm: '4px',
+      md: '8px',
+      lg: '16px',
+    },
+    animation: {
+      easing: 'ease-in',
+      duration: '0.2s',
+      defaultSettings: '0.2s ease-in',
+    },
+    transition: (prop, duration, easing): string => {
+      return `${prop} ${duration ? `${duration}s` : '0.2s'} ${easing ?? 'ease-in'}`;
+    },
+    radius: (value: number): string => `${DEFAULT_RADIUS_STEP * value}px`,
+    spacing: spacingFunction,
+  }), []);
+
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
+
+const spacingFunction = (value1: number, value2?: number, value3?: number, value4?: number): string => {
+  return [value1, value2, value3, value4]
+    .filter(value => !!value)
+    .map(value => `${value! * DEFAULT_SPACING_STEP}px`)
+    .join(' ');
+};

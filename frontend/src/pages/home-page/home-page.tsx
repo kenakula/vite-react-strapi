@@ -20,6 +20,7 @@ const HomePage = (): ReactElement => {
       <h3>{user?.email}</h3>
       <ColorMode/>
       <button onClick={handleChangeColorMode}>change</button>
+
       <br/>
       <br/>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolor eos iste iure laboriosam mollitia non quis

@@ -24,7 +24,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   };
 
   return {
-    plugins: [react(), svgr()],
+    plugins: [
+      react({
+        plugins: [['@swc/plugin-styled-components', { displayName: true }]]
+      }),
+      svgr()
+    ],
     resolve: {
       alias: {
         '@app': path.resolve(__dirname, './src'),

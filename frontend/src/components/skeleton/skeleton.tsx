@@ -1,19 +1,15 @@
-import clsx from 'clsx';
 import { HTMLProps, ReactElement } from 'react';
 
-import styles from './skeleton.module.css';
+import { StyledSkeleton } from './styles';
+import { SkeletonType } from './types';
 
 interface IProps extends HTMLProps<HTMLDivElement> {
-  type?: 'text' | 'avatar' | 'block';
+  type?: SkeletonType;
 }
 
-export const Skeleton = ({ type = 'text', className, ...rest }: IProps): ReactElement => {
-  const skeletonClassName = clsx(styles.skeleton, className, {
-    [styles.skeletonBlock]: type === 'block',
-    [styles.skeletonAvatar]: type === 'avatar',
-  });
+export const Skeleton = ({ type = 'text', ...rest }: IProps): ReactElement => {
 
   return (
-    <div className={skeletonClassName} data-testid={`skeleton_${type}`} {...rest} />
+    <StyledSkeleton type={type} data-testid={`skeleton_${type}`} {...rest} />
   );
 };

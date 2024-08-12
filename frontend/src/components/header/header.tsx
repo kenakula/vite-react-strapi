@@ -1,20 +1,19 @@
-import { Container } from '@components/container';
 import { Logo } from '@components/logo';
 import { ReactElement } from 'react';
 
 import { GlobalSearch, UserMenu } from './components';
-import styles from './header.module.css';
+import { SearchContainer, StyledContainer, StyledHeader } from './styles';
 
 export const Header = (): ReactElement => {
   return (
-    <header className={styles.header} data-testid="header">
-      <Container className={styles.headerContainer}>
+    <StyledHeader data-testid="header">
+      <StyledContainer>
         <Logo />
-        <div className={styles.headerSearchContainer}>
+        <SearchContainer>
           <GlobalSearch />
-        </div>
+        </SearchContainer>
         <UserMenu />
-      </Container>
-    </header>
+      </StyledContainer>
+    </StyledHeader>
   );
 };
