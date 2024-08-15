@@ -1,4 +1,4 @@
-import { visuallyHiddenStyles } from '@shared/styles';
+import { visuallyHiddenStyles } from '@shared/mixins';
 import styled, { RuleSet } from 'styled-components';
 
 interface IStyledLabelProps {

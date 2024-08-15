@@ -11,7 +11,7 @@ export const Theme = ({ children }: PropsWithChildren): ReactElement => {
       white: '#ffffff',
       black: '#000000',
       primary: 'oklch(50.08% 0.162 265.74)',
-      secondary: 'oklch(80% 0.4 267.53 / 0.2)',
+      secondary: 'oklch(84% 0.09 268)',
       accent: 'oklch(64.04% 0.145 266.78)',
       text: 'oklch(16.59% 0.022 271.06)',
       background: 'oklch(96.46% 0.010 273.36)'
@@ -31,10 +31,21 @@ export const Theme = ({ children }: PropsWithChildren): ReactElement => {
       md: '8px',
       lg: '16px',
     },
+    breakpoints: {
+      xs: '320px',
+      sm: '768px',
+      md: '1024px',
+      lg: '1280px',
+      xl: '1440px',
+      xxl: '1920px',
+    },
     animation: {
       easing: 'ease-in',
       duration: '0.2s',
       defaultSettings: '0.2s ease-in',
+    },
+    zIndex: {
+      header: '100',
     },
     transition: (prop, duration, easing): string => {
       return `${prop} ${duration ? `${duration}s` : '0.2s'} ${easing ?? 'ease-in'}`;

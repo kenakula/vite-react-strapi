@@ -1,3 +1,4 @@
+import { HEADER_HEIGHT } from '@shared/constants';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -26,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   main {
+    padding-top: ${HEADER_HEIGHT}px;
     overflow-y: auto;
 
     scrollbar-color: oklch(36% 0 0) oklch(96.46% 0.010 273.36);
@@ -43,19 +45,6 @@ export const GlobalStyle = createGlobalStyle`
     &::-webkit-scrollbar-track {
       background: oklch(96.46% 0.010 273.36);
     }
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
   }
 
   svg {
