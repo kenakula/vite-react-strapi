@@ -17,7 +17,7 @@ export const StyledHeader = styled.header<IHeaderStyles>`
   background-color: ${({ theme }): string => theme.colors.secondary};
 `;
 
-export const StyledContainer = styled(Container)`
+export const HeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
   column-gap: 20px;

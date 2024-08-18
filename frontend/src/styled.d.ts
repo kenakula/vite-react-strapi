@@ -1,15 +1,12 @@
 import 'styled-components';
 
+import { IThemeColors } from '@shared/interfaces';
+
 declare module 'styled-components' {
   export interface DefaultTheme {
-    colors: {
-      white: string;
-      black: string;
-      primary: string;
-      secondary: string;
-      accent: string;
-      text: string;
-      background: string;
+    colors: IThemeColors;
+    gradients: {
+      brand: string;
     };
     borderRadius: {
       sm: string;
@@ -25,6 +22,7 @@ declare module 'styled-components' {
       size: {
         caption: string;
         label: string;
+        menu: string;
         body: string;
       };
       family: {
@@ -39,8 +37,10 @@ declare module 'styled-components' {
       xl: string;
       xxl: string;
     },
+    shadows: string[],
     zIndex: {
       header: string;
+      dropdown: string;
     };
     transition: (prop: string, duration?: string, easing?: string) => string;
     radius: (value: number) => string;

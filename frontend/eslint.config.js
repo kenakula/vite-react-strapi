@@ -25,7 +25,7 @@ export default [
       'quotes': ['error', 'single'],
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
-      '@stylistic/js/indent': ['error', 2],
+      '@stylistic/js/indent': ['error', 2, { 'SwitchCase': 1 }],
       '@stylistic/js/object-curly-spacing': ['error', 'always'],
       '@stylistic/js/no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 0 }],
       '@typescript-eslint/explicit-function-return-type': 'error',

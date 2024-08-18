@@ -6,8 +6,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Inter', 'Helvetica', sans-serif;
-    font-size: 16px;
+    color: ${({ theme }): string => theme.colors.text};
+    font-family: ${({ theme }): string => theme.font.family.base};
+    font-size: ${({ theme }): string => theme.font.size.body};
+    background-color: ${({ theme }): string => theme.colors.background};
   }
 
   *,
