@@ -58,6 +58,8 @@ export const Dropdown = <T extends HTMLElement>({
       $left={coordinates.left}
       $right={coordinates.right}
       ref={dropdownRef}
+      data-testid="dropdownContainer"
+      data-dropdown
     >
       <DropdownList>
         {menuItems.map(item => <MenuItem key={item.id} item={item} onMenuItemClick={onClose} />)}

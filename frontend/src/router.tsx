@@ -1,5 +1,6 @@
 import { AuthLayout, BaseLayout, PrivateLayout } from '@components/layouts';
 import { WithSuspense } from '@components/with-suspense';
+import { HOME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, SIGNUP_ROUTE } from '@shared/constants';
 import { lazy } from 'react';
 import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 
@@ -10,25 +11,25 @@ const SignupPage = lazy(() => import('@pages/signup-page/signup-page'));
 
 const elementRoutes = createRoutesFromElements(
   <Route element={<BaseLayout />}>
-    <Route path="/"  index element={
+    <Route path={HOME_ROUTE}  index element={
       <WithSuspense>
         <HomePage />
       </WithSuspense>
     } />
     <Route element={<PrivateLayout />}>
-      <Route path="/profile" element={
+      <Route path={PROFILE_ROUTE} element={
         <WithSuspense>
           <ProfilePage />
         </WithSuspense>
       } />
     </Route>
     <Route path="/auth" element={<AuthLayout />}>
-      <Route path="/auth/login" element={
+      <Route path={LOGIN_ROUTE} element={
         <WithSuspense>
           <LoginPage />
         </WithSuspense>
       } />
-      <Route path="/auth/signup" element={
+      <Route path={SIGNUP_ROUTE} element={
         <WithSuspense>
           <SignupPage />
         </WithSuspense>

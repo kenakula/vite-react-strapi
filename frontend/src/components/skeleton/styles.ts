@@ -22,16 +22,16 @@ export const StyledSkeleton = styled.div<IStyledSkeletonProps>`
   
   ${({ type }): RuleSet<object> => {
     switch (type) {
-    case 'text':
-      return css`
+      case 'text':
+        return css`
         min-height: 26px
       `;
-    case 'block':
-      return css`
+      case 'block':
+        return css`
         min-height: 72px;
       `;
-    case 'avatar':
-      return css`
+      case 'avatar':
+        return css`
         width: 50px;
         height: 50px;
         border-radius: 50%;

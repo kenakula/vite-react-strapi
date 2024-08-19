@@ -21,14 +21,17 @@ export const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
 
-    & > div {
+    & > div:not([data-dropdown]) {
       display: flex;
       flex-direction: column;
       width: 100%;
+      min-height: 100dvh;
     }
   }
 
   main {
+    flex-grow: 1;
+    
     padding-top: ${HEADER_HEIGHT}px;
     overflow-y: auto;
 
