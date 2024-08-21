@@ -1,5 +1,5 @@
 import { store } from '@app/store';
-import { GlobalStyle, Theme } from '@app/styles';
+import { MantineProvider } from '@mantine/core';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -9,10 +9,9 @@ import { App } from './app';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <Theme>
-        <GlobalStyle />
+      <MantineProvider>
         <App />
-      </Theme>
+      </MantineProvider>
     </Provider>
   </React.StrictMode>,
 );

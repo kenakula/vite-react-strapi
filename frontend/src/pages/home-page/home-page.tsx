@@ -1,27 +1,14 @@
-import { appStoreSelector, authStoreSelector, useAppDispatch, useAppSelector } from '@app/store';
-import { toggleColorMode } from '@app/store/app';
-import { Container } from '@components/container';
+import { appStoreSelector, authStoreSelector, useAppSelector } from '@app/store';
 import { ReactElement } from 'react';
-
-import { ColorMode } from './color-mode';
 
 const HomePage = (): ReactElement => {
   const { appName } = useAppSelector(appStoreSelector);
   const { user } = useAppSelector(authStoreSelector);
-  const dispatch = useAppDispatch();
-
-  const handleChangeColorMode = (): void => {
-    dispatch(toggleColorMode());
-  };
 
   return (
-    <Container className="home-page">
+    <div className="home-page">
       <h1>{appName}</h1>
       <h3>{user?.email}</h3>
-      <ColorMode/>
-      <button onClick={handleChangeColorMode}>change</button>
-
-      <br/>
       <br/>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolor eos iste iure laboriosam mollitia non quis
       sit ullam velit! Adipisci aliquam animi at commodi, consequatur deleniti error itaque laborum libero magni
@@ -72,7 +59,7 @@ const HomePage = (): ReactElement => {
       voluptates. Adipisci animi architecto consequatur consequuntur, dolorem ea eligendi eos fugiat illum ipsa iusto
       necessitatibus nemo quibusdam quod quos repellendus reprehenderit suscipit unde, veniam voluptas! Animi aut,
       eveniet iure neque nihil officia repellendus voluptatibus!
-    </Container>
+    </div>
   );
 };
 

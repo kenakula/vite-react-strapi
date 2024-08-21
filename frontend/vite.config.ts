@@ -25,9 +25,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 
   return {
     plugins: [
-      react({
-        plugins: [['@swc/plugin-styled-components', { displayName: true }]]
-      }),
+      react(),
       svgr()
     ],
     resolve: {
@@ -45,9 +43,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     server: serverOptions,
     css: {
       transformer: 'lightningcss',
-    },
-    build: {
-      cssMinify: 'lightningcss',
     },
     test: {
       globals: true,
