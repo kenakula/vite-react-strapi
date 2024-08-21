@@ -1,17 +1,11 @@
-import { appStoreSelector, authStoreSelector, useAppSelector } from '@app/store';
-import { Button, Text, Title, useMantineColorScheme } from '@mantine/core';
+import { Button, Text, useMantineColorScheme } from '@mantine/core';
 import { ReactElement } from 'react';
 
 const HomePage = (): ReactElement => {
-  const { appName } = useAppSelector(appStoreSelector);
-  const { user } = useAppSelector(authStoreSelector);
-
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
 
   return (
     <div className="home-page">
-      <Title order={1}>{appName}</Title>
-      <Title order={3}>{user?.email}</Title>
       <Button size="xs" onClick={toggleColorScheme}>{colorScheme}</Button>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolor eos iste iure laboriosam mollitia non quis

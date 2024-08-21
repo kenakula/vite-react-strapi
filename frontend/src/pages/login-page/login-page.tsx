@@ -1,4 +1,6 @@
 import { useLoginMutation } from '@app/store/auth/auth-api';
+import { Button, Title } from '@mantine/core';
+import { HOME_ROUTE } from '@shared/constants';
 import { ILoginDataModel } from '@shared/models';
 import { Field, Form, Formik } from 'formik';
 import { ReactElement } from 'react';
@@ -14,7 +16,7 @@ interface RedirectLocationState {
 }
 
 const LoginPage = (): ReactElement => {
-  const [login, { data }] = useLoginMutation();
+  const [login] = useLoginMutation();
   const navigate = useNavigate();
   const { state: locationState } = useLocation();
 
@@ -25,22 +27,25 @@ const LoginPage = (): ReactElement => {
       // state is any by default
       const { redirectTo } = locationState as RedirectLocationState;
       navigate(`${redirectTo.pathname}${redirectTo.search}`);
+
+      return;
     }
+
+    navigate(HOME_ROUTE);
   };
 
   return (
-    <div>
-      <h1>Login Page</h1>
-      {data && <p>{JSON.stringify(data.user)}</p>}
+    <>
+      <Title order={1}>Login Page</Title>
       <Formik<ILoginDataModel> initialValues={DEFAULT_FORM_VALUES} onSubmit={onSubmit}>
         <Form>
           <Field name="identifier" placeholder="email" />
           <Field name="password" placeholder="password" />
 
-          <button type="submit">login</button>
+          <Button type="submit">login</Button>
         </Form>
       </Formik>
-    </div>
+    </>
   );
 };
 

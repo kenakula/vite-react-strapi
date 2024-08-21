@@ -1,7 +1,10 @@
 import { useSignupMutation } from '@app/store/auth/auth-api';
+import { Button, Title } from '@mantine/core';
+import { HOME_ROUTE } from '@shared/constants';
 import { ISignupDataModel } from '@shared/models';
 import { Field, Form, Formik } from 'formik';
 import { ReactElement } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const DEFAULT_FORM_VALUES: ISignupDataModel = {
   email: '',
@@ -10,26 +13,29 @@ const DEFAULT_FORM_VALUES: ISignupDataModel = {
 };
 
 const SignupPage = (): ReactElement => {
-  const [signup, { data }] = useSignupMutation();
+  const [signup] = useSignupMutation();
+
+  const navigate = useNavigate();
 
   const onSubmit = async (data: ISignupDataModel): Promise<void> => {
     await signup(data);
+
+    navigate(HOME_ROUTE);
   };
 
   return (
-    <div>
-      <h1>Signup Page</h1>
-      {data && <p>{JSON.stringify(data)}</p>}
+    <>
+      <Title order={1}>Signup Page</Title>
       <Formik<ISignupDataModel> initialValues={DEFAULT_FORM_VALUES} onSubmit={onSubmit}>
         <Form>
-          <Field name="email" placeholder="email" />
-          <Field name="username" placeholder="username" />
-          <Field name="password" placeholder="password" />
+          <Field name="email" placeholder="email"/>
+          <Field name="username" placeholder="username"/>
+          <Field name="password" placeholder="password"/>
 
-          <button type="submit">create</button>
+          <Button type="submit">create</Button>
         </Form>
       </Formik>
-    </div>
+    </>
   );
 };
 
