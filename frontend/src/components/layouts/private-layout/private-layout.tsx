@@ -9,9 +9,5 @@ export const PrivateLayout = (): ReactElement => {
 
   if (!data) return <Navigate to="/auth/login" />;
 
-  return (
-    <div data-testid="private_layout">
-      <Outlet />
-    </div>
-  );
+  return <Outlet />;
 };
