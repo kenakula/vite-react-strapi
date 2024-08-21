@@ -1,13 +1,21 @@
+import { authStoreSelector, useAppSelector } from '@app/store';
 import { useGetMeQuery } from '@app/store/auth';
-import { ReactElement } from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { LOGIN_ROUTE } from '@shared/constants';
+import { FC } from 'react';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-export const PrivateLayout = (): ReactElement => {
-  const { data, isLoading } = useGetMeQuery();
+interface IProps {
+  redirectPath?: string;
+}
+
+export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
+  useGetMeQuery();
+  const { isAuthenticated, isLoading } = useAppSelector(authStoreSelector);
+  const location = useLocation();
 
   if (isLoading) return <span>loading ...</span>;
 
-  if (!data) return <Navigate to="/auth/login" />;
+  if (!isAuthenticated) return <Navigate to={redirectPath} replace state={{ redirectTo: location }} />;
 
   return <Outlet />;
 };

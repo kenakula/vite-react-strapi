@@ -8,12 +8,14 @@ import { authApi } from './auth-api';
 export interface IAuthSlice {
   user: IUser | null;
   isAuthenticated: boolean;
+  isLoading: boolean;
   token: string | null;
 }
 
 const DEFAULT_AUTH_STATE: IAuthSlice = {
   user: null,
   isAuthenticated: false,
+  isLoading: false,
   token: null,
 };
 
@@ -51,10 +53,17 @@ const authSlice = createSlice({
       }
     );
     builder.addMatcher(
+      authApi.endpoints.getMe.matchPending,
+      (state) => {
+        state.isLoading = true;
+      }
+    );
+    builder.addMatcher(
       authApi.endpoints.getMe.matchFulfilled,
       (state, { payload }: PayloadAction<IUser>) => {
         state.user = payload;
         state.isAuthenticated = true;
+        state.isLoading = false;
       }
     );
   }

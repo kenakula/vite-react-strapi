@@ -41,9 +41,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }
     },
     server: serverOptions,
-    css: {
-      transformer: 'lightningcss',
-    },
     test: {
       globals: true,
       environment: 'jsdom',
