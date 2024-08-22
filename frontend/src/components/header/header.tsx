@@ -1,8 +1,10 @@
+import { authStoreSelector, useAppSelector } from '@app/store';
 import { AppShell, Burger } from '@mantine/core';
-import { HOME_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, SIGNUP_ROUTE } from '@shared/constants';
+import { HOME_ROUTE } from '@shared/constants';
 import { memo, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
+import { UserMenu } from './components';
 import classes from './header.module.css';
 
 interface IProps {
@@ -12,6 +14,7 @@ interface IProps {
 }
 
 const HeaderComponent = ({ withNav = false, isNavOpened, toggleNav }: IProps): ReactElement => {
+  const { isAuthenticated, user } = useAppSelector(authStoreSelector);
 
   return (
     <AppShell.Header classNames={{ header: classes.header }}>
@@ -25,22 +28,7 @@ const HeaderComponent = ({ withNav = false, isNavOpened, toggleNav }: IProps): R
         />
       )}
       <Link to={HOME_ROUTE} className={classes.logo}>Logo</Link>
-      <nav>
-        <ul className={classes.menu}>
-          <li>
-            <Link to={HOME_ROUTE}>HOME</Link>
-          </li>
-          <li>
-            <Link to={PROFILE_ROUTE}>PROFILE</Link>
-          </li>
-          <li>
-            <Link to={LOGIN_ROUTE}>LOGIN</Link>
-          </li>
-          <li>
-            <Link to={SIGNUP_ROUTE}>SIGNUP</Link>
-          </li>
-        </ul>
-      </nav>
+      {isAuthenticated && <UserMenu user={user}/>}
     </AppShell.Header>
   );
 };
