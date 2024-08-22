@@ -1,6 +1,7 @@
 import { useGetMeQuery } from '@app/store/auth';
+import { Header } from '@components/header';
 import { Loader } from '@components/loader';
-import { AppShell, Burger } from '@mantine/core';
+import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { LOGIN_ROUTE } from '@shared/constants';
 import { FC } from 'react';
@@ -35,15 +36,7 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
       }}
       className="private-layout"
     >
-      <AppShell.Header withBorder>
-        <Burger
-          opened={opened}
-          onClick={toggle}
-          hiddenFrom="sm"
-          size="sm"
-        />
-        Header
-      </AppShell.Header>
+      <Header isNavOpened={opened} toggleNav={toggle} withNav />
       <AppShell.Navbar withBorder>Navbar</AppShell.Navbar>
       <AppShell.Main>
         <Outlet />
