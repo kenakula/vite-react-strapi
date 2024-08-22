@@ -14,16 +14,17 @@ interface IProps {
 const HeaderComponent = ({ withNav = false, isNavOpened, toggleNav }: IProps): ReactElement => {
 
   return (
-    <AppShell.Header>
+    <AppShell.Header classNames={{ header: classes.header }}>
       {withNav && (
         <Burger
+          className={classes.burger}
           opened={isNavOpened}
           onClick={toggleNav}
           hiddenFrom="sm"
           size="sm"
         />
       )}
-      Header
+      <Link to={HOME_ROUTE} className={classes.logo}>Logo</Link>
       <nav>
         <ul className={classes.menu}>
           <li>
