@@ -1,4 +1,5 @@
 import { useGetMeQuery } from '@app/store/auth';
+import { Loader } from '@components/loader';
 import { AppShell, Burger } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { LOGIN_ROUTE } from '@shared/constants';
@@ -16,7 +17,7 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
   const location = useLocation();
   const [opened, { toggle }] = useDisclosure();
 
-  if (isLoading) return <span>loading ...</span>;
+  if (isLoading) return <Loader />;
 
   if (!data) return <Navigate to={redirectPath} replace state={{ redirectTo: location }} />;
 
@@ -32,6 +33,7 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
       classNames={{
         header: classes.header
       }}
+      className="private-layout"
     >
       <AppShell.Header withBorder>
         <Burger

@@ -9,7 +9,7 @@ export const BaseLayout = (): ReactElement => {
   useGetAppDataQuery();
 
   return (
-    <AppShell padding="sm" header={{ height: 55 }}>
+    <AppShell padding="sm" header={{ height: 55 }} data-label="base-layout">
       <AppShell.Header>Header</AppShell.Header>
       <AppShell.Main>
         <Outlet />
