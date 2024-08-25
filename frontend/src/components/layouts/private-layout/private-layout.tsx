@@ -3,6 +3,7 @@ import { useGetAppDataQuery } from '@app/store/app';
 import { useLazyGetMeQuery } from '@app/store/auth';
 import { Header } from '@components/header';
 import { Loader } from '@components/loader';
+import { Navbar } from '@components/navbar';
 import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { LOGIN_ROUTE } from '@shared/constants';
@@ -57,7 +58,7 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
       className="private-layout"
     >
       <Header isNavOpened={opened} toggleNav={toggle} withNav />
-      <AppShell.Navbar><button onClick={handleMinimizeNavBar}>M</button></AppShell.Navbar>
+      <Navbar isMinimized={isMinimizedNavBar} handleMinimize={handleMinimizeNavBar} />
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>

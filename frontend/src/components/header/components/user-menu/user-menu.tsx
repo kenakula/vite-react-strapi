@@ -3,6 +3,8 @@ import { logout } from '@app/store/auth';
 import { Avatar, Menu } from '@mantine/core';
 import { LOGIN_ROUTE, PROFILE_ROUTE } from '@shared/constants';
 import { IUser } from '@shared/interfaces';
+import IconLogout from '@shared/media/icons/logout.svg?react';
+import IconProfile from '@shared/media/icons/profile.svg?react';
 import { memo, ReactElement } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -24,16 +26,16 @@ const UserMenuComponent = ({ user }: IProps): ReactElement | null => {
   };
 
   return (
-    <Menu shadow="lg" withArrow>
+    <Menu shadow="lg" withArrow width={150}>
       <Menu.Target>
         <button className={classes.userMenu} type="button">
           <Avatar radius="xl" />
         </button>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Item to={PROFILE_ROUTE} component={Link}>Profile</Menu.Item>
+        <Menu.Item to={PROFILE_ROUTE} component={Link} leftSection={<IconProfile />}>Profile</Menu.Item>
         <Menu.Divider />
-        <Menu.Item color="red" onClick={handleLogout}>Logout</Menu.Item>
+        <Menu.Item color="red" onClick={handleLogout} leftSection={<IconLogout />}>Logout</Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );

@@ -1,5 +1,5 @@
 import { authStoreSelector, useAppSelector } from '@app/store';
-import { AppShell, Burger } from '@mantine/core';
+import { AppShell, Burger, Text } from '@mantine/core';
 import { HOME_ROUTE } from '@shared/constants';
 import { memo, ReactElement } from 'react';
 import { Link } from 'react-router-dom';
@@ -27,7 +27,7 @@ const HeaderComponent = ({ withNav = false, isNavOpened, toggleNav }: IProps): R
           size="sm"
         />
       )}
-      <Link to={HOME_ROUTE} className={classes.logo}>Logo</Link>
+      <Text component={Link} className={classes.logo} to={HOME_ROUTE}>Logo</Text>
       {isAuthenticated && <UserMenu user={user}/>}
     </AppShell.Header>
   );
