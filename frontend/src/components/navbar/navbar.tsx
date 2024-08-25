@@ -18,6 +18,7 @@ export const Navbar = ({ isMinimized, handleMinimize }: IProps): ReactElement =>
         className={clsx({ [classes.expanded]: !isMinimized })}
         color="gray"
         variant="transparent"
+        visibleFrom="sm"
         onClick={handleMinimize}
       >
         <IconArrowBarRight/>
