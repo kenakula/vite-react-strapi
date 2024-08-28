@@ -15,3 +15,17 @@ export interface IAuthResponseModel {
   jwt: string;
   user: IUser
 }
+
+export interface IForgotPasswordDataModel {
+  email: string;
+}
+
+export interface IForgotPasswordResponseModel {
+  ok: boolean;
+}
+
+export interface IChangePasswordDataModel {
+  currentPassword: string;
+  password: string;
+  passwordConfirmation: string;
+}

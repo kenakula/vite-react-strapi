@@ -1,10 +1,10 @@
 import { useSignupMutation } from '@app/store/auth/auth-api';
-import { Button, Title } from '@mantine/core';
-import { HOME_ROUTE } from '@shared/constants';
+import { Anchor, Button, Stack, TextInput, Title } from '@mantine/core';
+import { HOME_ROUTE, LOGIN_ROUTE } from '@shared/constants';
 import { ISignupDataModel } from '@shared/models';
 import { Field, Form, Formik } from 'formik';
 import { ReactElement } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const DEFAULT_FORM_VALUES: ISignupDataModel = {
   email: '',
@@ -25,16 +25,19 @@ const SignupPage = (): ReactElement => {
 
   return (
     <>
-      <Title order={1}>Signup Page</Title>
+      <Title component="h1" order={3}>Signup Page</Title>
       <Formik<ISignupDataModel> initialValues={DEFAULT_FORM_VALUES} onSubmit={onSubmit}>
         <Form>
-          <Field name="email" placeholder="email"/>
-          <Field name="username" placeholder="username"/>
-          <Field name="password" placeholder="password"/>
+          <TextInput component={Field} name="email" placeholder="email"/>
+          <TextInput component={Field} name="username" placeholder="username"/>
+          <TextInput component={Field} name="password" placeholder="password"/>
 
           <Button type="submit">create</Button>
         </Form>
       </Formik>
+      <Stack align="center" gap={5}>
+        <Anchor c="blue" component={Link} size="sm" to={LOGIN_ROUTE}>login</Anchor>
+      </Stack>
     </>
   );
 };

@@ -26,16 +26,16 @@ const UserMenuComponent = ({ user }: IProps): ReactElement | null => {
   };
 
   return (
-    <Menu shadow="lg" withArrow width={150}>
+    <Menu shadow="lg" width={150} withArrow>
       <Menu.Target>
         <button className={classes.userMenu} type="button">
-          <Avatar radius="xl" />
+          <Avatar radius="lg" size="sm" />
         </button>
       </Menu.Target>
       <Menu.Dropdown>
-        <Menu.Item to={PROFILE_ROUTE} component={Link} leftSection={<IconProfile />}>Profile</Menu.Item>
+        <Menu.Item component={Link} leftSection={<IconProfile />} to={PROFILE_ROUTE}>Profile</Menu.Item>
         <Menu.Divider />
-        <Menu.Item color="red" onClick={handleLogout} leftSection={<IconLogout />}>Logout</Menu.Item>
+        <Menu.Item color="red" leftSection={<IconLogout />} onClick={handleLogout}>Logout</Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );

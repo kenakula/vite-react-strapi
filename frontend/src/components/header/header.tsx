@@ -21,13 +21,13 @@ const HeaderComponent = ({ withNav = false, isNavOpened, toggleNav }: IProps): R
       {withNav && (
         <Burger
           className={classes.burger}
-          opened={isNavOpened}
-          onClick={toggleNav}
           hiddenFrom="sm"
+          opened={isNavOpened}
           size="sm"
+          onClick={toggleNav}
         />
       )}
-      <Text component={Link} className={classes.logo} to={HOME_ROUTE}>Logo</Text>
+      <Text className={classes.logo} component={Link} fw={600} size="lg" to={HOME_ROUTE}>Logo</Text>
       {isAuthenticated && <UserMenu user={user}/>}
     </AppShell.Header>
   );

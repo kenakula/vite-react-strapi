@@ -72,6 +72,16 @@ const authSlice = createSlice({
         state.isLoading = false;
       }
     );
+    builder.addMatcher(
+      authApi.endpoints.changePassword.matchFulfilled,
+      (state, { payload: { user, jwt } }: PayloadAction<IAuthResponseModel>) => {
+        state.user = user;
+        state.token = jwt;
+        state.isAuthenticated = true;
+
+        Storage.write('JWT_TOKEN', jwt);
+      }
+    );
   }
 });
 
