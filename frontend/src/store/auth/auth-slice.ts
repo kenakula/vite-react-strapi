@@ -29,6 +29,9 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
 
       Storage.clear('JWT_TOKEN');
+    },
+    setUser: (state, { payload }: PayloadAction<IUser>) => {
+      state.user = payload;
     }
   },
   extraReducers: builder => {
@@ -85,5 +88,5 @@ const authSlice = createSlice({
   }
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, setUser } = authSlice.actions;
 export const authReducer = authSlice.reducer;

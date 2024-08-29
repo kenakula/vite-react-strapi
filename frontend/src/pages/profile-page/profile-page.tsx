@@ -1,8 +1,11 @@
+import { authStoreSelector, useAppSelector } from '@app/store';
 import { Grid, Title, VisuallyHidden } from '@mantine/core';
-import { ChangePassword } from '@pages/profile-page/components';
 import { ReactElement } from 'react';
 
+import { ChangePassword, UpdateUser } from './components';
+
 const ProfilePage = (): ReactElement => {
+  const { user } = useAppSelector(authStoreSelector);
 
   return (
     <div className="profile-page">
@@ -12,6 +15,9 @@ const ProfilePage = (): ReactElement => {
       <Grid>
         <Grid.Col span={{ base: 12, sm: 6 }}>
           <ChangePassword />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, sm: 6 }}>
+          <UpdateUser user={user} />
         </Grid.Col>
       </Grid>
     </div>

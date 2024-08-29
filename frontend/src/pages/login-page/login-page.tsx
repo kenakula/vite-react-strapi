@@ -21,17 +21,21 @@ const LoginPage = (): ReactElement => {
   const { state: locationState } = useLocation();
 
   const onSubmit = async (data: ILoginDataModel): Promise<void> => {
-    await login(data);
+    try {
+      await login(data).unwrap();
 
-    if (locationState) {
-      // state is any by default
-      const { redirectTo } = locationState as RedirectLocationState;
-      navigate(`${redirectTo.pathname}${redirectTo.search}`);
+      if (locationState) {
+        // state is any by default
+        const { redirectTo } = locationState as RedirectLocationState;
+        navigate(`${redirectTo.pathname}${redirectTo.search}`);
 
-      return;
+        return;
+      }
+
+      navigate(HOME_ROUTE);
+    } catch (error) {
+      console.error(error);
     }
-
-    navigate(HOME_ROUTE);
   };
 
   return (

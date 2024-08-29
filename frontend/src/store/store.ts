@@ -1,4 +1,5 @@
 import { authApi } from '@app/store/auth/auth-api';
+import { usersApi } from '@app/store/users/users-api';
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
@@ -12,10 +13,12 @@ export const store = configureStore({
     auth: authReducer,
     [appApi.reducerPath]: appApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
+    [usersApi.reducerPath]: usersApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
     appApi.middleware,
     authApi.middleware,
+    usersApi.middleware,
   )
 });
 
