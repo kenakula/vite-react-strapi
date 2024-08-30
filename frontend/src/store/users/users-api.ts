@@ -5,6 +5,9 @@ export const usersApi = createApi({
   reducerPath: 'usersApi',
   baseQuery,
   endpoints: builder => ({
+    getUser: builder.query({
+      query: (id?: number) => `/users/${id}`
+    }),
     updateUser: builder.mutation({
       query: data => ({
         url: `/users/${data.id}`,
@@ -15,4 +18,4 @@ export const usersApi = createApi({
   })
 });
 
-export const { useUpdateUserMutation } = usersApi;
+export const { useUpdateUserMutation, useGetUserQuery } = usersApi;

@@ -1,3 +1,5 @@
+import { IMedia } from './media';
+
 export interface IUser {
   id: number;
   username: string;
@@ -7,4 +9,5 @@ export interface IUser {
   blocked: boolean;
   createdAt: string;
   updatedAt: string;
+  avatar: IMedia | null;
 }

@@ -14,12 +14,17 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 
   const appPort = process.env.VITE_APP_PORT;
   const baseUrl = process.env.VITE_API_BASE_URL ?? '/api';
+  const mediaUrl = process.env.VITE_API_MEDIA_URL ?? '/uploads';
 
   const serverOptions: TServerOptions = {
     proxy: {}
   };
 
   serverOptions.proxy[baseUrl] = {
+    target: `http://localhost:${appPort}`,
+  };
+
+  serverOptions.proxy[mediaUrl] = {
     target: `http://localhost:${appPort}`,
   };
 

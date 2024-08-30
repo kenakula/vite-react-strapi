@@ -5,7 +5,7 @@ import { LOGIN_ROUTE, PROFILE_ROUTE } from '@shared/constants';
 import { IUser } from '@shared/interfaces';
 import IconLogout from '@shared/media/icons/logout.svg?react';
 import IconProfile from '@shared/media/icons/profile.svg?react';
-import { memo, ReactElement } from 'react';
+import { memo, ReactElement, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import classes from './user-menu.module.css';
@@ -25,11 +25,13 @@ const UserMenuComponent = ({ user }: IProps): ReactElement | null => {
     navigate(LOGIN_ROUTE);
   };
 
+  const avatarUrl = useMemo(() => user?.avatar?.formats?.thumbnail?.url ?? undefined, [user]);
+
   return (
     <Menu shadow="lg" width={150} withArrow>
       <Menu.Target>
         <button className={classes.userMenu} type="button">
-          <Avatar radius="lg" size="sm" />
+          <Avatar radius="lg" size="sm" src={avatarUrl} />
         </button>
       </Menu.Target>
       <Menu.Dropdown>

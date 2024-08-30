@@ -4,7 +4,7 @@ import { useLazyGetMeQuery } from '@app/store/auth';
 import { Header } from '@components/header';
 import { Loader } from '@components/loader';
 import { Navbar } from '@components/navbar';
-import { AppShell } from '@mantine/core';
+import { AppShell, Container } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { LOGIN_ROUTE } from '@shared/constants';
 import { FC, useEffect, useState } from 'react';
@@ -37,7 +37,7 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
 
   if (isLoading || !authChecked) return <Loader />;
 
-  if (!user && authChecked) return <Navigate to={redirectPath} replace state={{ redirectTo: location }} />;
+  if (!user && authChecked) return <Navigate state={{ redirectTo: location }} to={redirectPath} replace />;
 
   const handleMinimizeNavBar = (): void => {
     setIsMinimizedNavBar(prev => !prev);
@@ -45,6 +45,10 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
 
   return (
     <AppShell
+      className="private-layout"
+      classNames={{
+        navbar: classes.navbar
+      }}
       header={{ height: 50 }}
       navbar={{
         width: isMinimizedNavBar ? 50 : { sm: 150, md: 250 },
@@ -52,15 +56,13 @@ export const PrivateLayout: FC<IProps> = ({ redirectPath = LOGIN_ROUTE }) => {
         collapsed: { mobile: !opened },
       }}
       padding="sm"
-      classNames={{
-        navbar: classes.navbar
-      }}
-      className="private-layout"
     >
       <Header isNavOpened={opened} toggleNav={toggle} withNav />
-      <Navbar isMinimized={isMinimizedNavBar} handleMinimize={handleMinimizeNavBar} />
+      <Navbar handleMinimize={handleMinimizeNavBar} isMinimized={isMinimizedNavBar} />
       <AppShell.Main>
-        <Outlet />
+        <Container px={0}>
+          <Outlet />
+        </Container>
       </AppShell.Main>
     </AppShell>
   );

@@ -42,7 +42,7 @@ export const authApi = createApi({
       })
     }),
     getMe: builder.query<IUser, void>({
-      query: () => ({ url: '/users/me' })
+      query: () => ({ url: '/users/me?populate=avatar' })
     }),
   })
 });
