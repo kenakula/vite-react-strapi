@@ -5,6 +5,6 @@ import classes from './loader.module.css';
 
 export const Loader = (): ReactElement => (
   <div className={classes.container}>
-    <MantineLoader size="xl" type="dots" c="blue" />
+    <MantineLoader c="blue" size="xl" type="dots" />
   </div>
 );
